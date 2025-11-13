@@ -1,0 +1,9 @@
+streamlit
+torch
+transformers
+pennylane
+plotly
+numpy
+pandas
+scikit-learn
+qiskit
