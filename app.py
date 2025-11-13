@@ -154,14 +154,19 @@ if uploaded:
         # Analytical Insights
         # -------------------------------
         st.markdown("### 🧩 Analytical Insights")
-        st.write(f"""
-        - The **model utility** decreases as quantum noise increases,  
-          but remains stable up to a noise level of **≈ 0.25** — showing strong robustness.  
-        - At **ε = {epsilon}**, the **privacy level** ensures a **balance between information protection and performance**.  
-        - The **Quantum Resilience Index** peaks at **{round(np.max(resilience), 2)}**,  
-          demonstrating the adaptive strength of the hybrid AI–quantum model.  
-        - The use of **VQC** with **RoBERTa embeddings** allows efficient feature encoding, even under noisy conditions.
-        """)
 
-        st.success("✅ Quantum-AI Analysis Completed Successfully!")
-        st.caption("Model: RoBERTa-base | Quantum Layer: 4 Qubits | Simulator: default.qubit (PennyLane)")
+max_resilience = round(float(np.max(resilience)), 2)
+
+insights = f"""
+- The **model utility** decreases as quantum noise increases,  
+  but remains stable up to a noise level of **≈ 0.25** — showing strong robustness.  
+- At **ε = {epsilon}**, the **privacy level** ensures a **balance between information protection and performance**.  
+- The **Quantum Resilience Index** peaks at **{max_resilience}**,  
+  demonstrating the adaptive strength of the hybrid AI–quantum model.  
+- The use of **VQC** with **RoBERTa embeddings** allows efficient feature encoding, even under noisy conditions.
+"""
+
+st.markdown(insights)
+
+st.success("✅ Quantum-AI Analysis Completed Successfully!")
+st.caption("Model: RoBERTa-base | Quantum Layer: 4 Qubits | Simulator: default.qubit (PennyLane)")
